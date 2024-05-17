@@ -4,5 +4,5 @@ ricardo-inc/
 │   └── index.html         <-- Pagina met de countdown
 │
 └── website/
-    └── index2.html         <-- Pagina na afloop van de countdown
+    └── index.html         <-- Pagina na afloop van de countdown
 
