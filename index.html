@@ -3,45 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Head Information -->
-  <title>Welkom op onze website</title>
-    <link data-n-head='ssr' rel='icon' type='image/x-icon' href='images/favicon.icon'>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      color: #333;
-    }
-    p {
-      color: #666;
-    }
-    nav {
-      margin-top: 20px;
-    }
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    nav ul li {
-      display: inline;
-      margin-right: 10px;
-    }
-    nav ul li a {
-      color: #007bff;
-      text-decoration: none;
-    }
-  </style>
+  <title>Bedrijfsnaam</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Welkom op onze website!</h1>
-  <p>Onze website is momenteel in aanbouw. Kom binnenkort terug om te zien wat we te bieden hebben.</p>
-  <nav>
-    <ul>
-      <!-- Voeg hier meer navigatielinks toe als dat nodig is -->
-    </ul>
+
+  <!-- Navigatiebalk -->
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">Bedrijfsnaam</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#over-ons">Over Ons</a></li>
+        <li><a href="#diensten">Diensten</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
+
+  <!-- Hero-sectie -->
+  <header id="home" class="hero">
+    <div class="container">
+      <h1>Welkom bij Bedrijfsnaam</h1>
+      <p>Ontdek wat wij voor u kunnen betekenen</p>
+    </div>
+  </header>
+
+  <!-- Over ons sectie -->
+  <section id="over-ons" class="about">
+    <div class="container">
+      <h2>Over Ons</h2>
+      <p>Wat maakt ons uniek en waarom zou u voor ons moeten kiezen?</p>
+    </div>
+  </section>
+
+  <!-- Diensten sectie -->
+  <section id="diensten" class="services">
+    <div class="container">
+      <h2>Onze Diensten</h2>
+      <p>Bekijk wat wij te bieden hebben en hoe wij u van dienst kunnen zijn</p>
+    </div>
+  </section>
+
+  <!-- Portfolio sectie -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <h2>Ons Portfolio</h2>
+      <p>Bekijk enkele van onze recente projecten</p>
+    </div>
+  </section>
+
+  <!-- Contact sectie -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Neem contact met ons op voor vragen of om een afspraak te maken</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Bedrijfsnaam. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
