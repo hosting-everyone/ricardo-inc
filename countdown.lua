@@ -1,9 +1,7 @@
 countdown/
 │
 ├── countdown/
-│   ├── index.html         <-- Pagina met de countdown
-│   └── style.css          <-- Stijlblad voor de countdown pagina
+│   └── index.html         <-- Pagina met de countdown
 │
 └── website/
-    ├── index.html         <-- Pagina na afloop van de countdown
-    └── style.css          <-- Stijlblad voor de hoofdpagina
+    └── index.html  <-- Pagina na afloop van de countdown 
