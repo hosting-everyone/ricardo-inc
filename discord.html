@@ -1,8 +1,23 @@
-<style>
-    .discord-widget {
-        width: 100%;
-        height: 100vh; /* Hiermee neemt de iframe de volledige hoogte van het scherm in beslag */
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Widget</title>
+    <style>
+        body {
+            margin: 0; /* Om de standaard marges van de pagina te verwijderen */
+            padding: 0; /* Om de standaard opvulling van de pagina te verwijderen */
+            background-color: black; /* Achtergrondkleur van de pagina */
+        }
 
-<iframe class="discord-widget" src="https://discord.com/widget?id=1240329189052252180&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        .discord-widget {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <iframe class="discord-widget" src="https://discord.com/widget?id=1240329189052252180&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+</body>
+</html>
