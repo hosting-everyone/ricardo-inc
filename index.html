@@ -20,46 +20,48 @@
   <div id="countdown"></div>
 
   <script>
-    // Stel de release datum in (in UTC tijd)
-    var releaseDate = new Date('2024-10-10T00:00:00Z').getTime();
+    // Controleer of de URL de parameter "launched" bevat
+    var urlParams = new URLSearchParams(window.location.search);
+    var launched = urlParams.has('launched');
 
-    // Update de timer elke seconde
-    var x = setInterval(function() {
+    if (!launched) {
+      // Stel de release datum in (in UTC tijd)
+      var releaseDate = new Date('2024-10-10T00:00:00Z').getTime();
 
-      // Haal de huidige tijd op
-      var now = new Date().getTime();
-      
-      // Bereken het verschil tussen nu en de release datum
-      var distance = releaseDate - now;
-      
-      // Bereken de dagen, uren, minuten en seconden
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      
-      // Toon het resultaat in de div met id="countdown"
-      document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
-      
-      // Als de countdown voorbij is, toon dan een bericht
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "De lancering is begonnen!";
-      }
-    }, 1000);
+      // Update de timer elke seconde
+      var x = setInterval(function() {
+
+        // Haal de huidige tijd op
+        var now = new Date().getTime();
+        
+        // Bereken het verschil tussen nu en de release datum
+        var distance = releaseDate - now;
+        
+        // Bereken de dagen, uren, minuten en seconden
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Toon het resultaat in de div met id="countdown"
+        document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+        
+        // Als de countdown voorbij is, toon dan een bericht en start een timer voor 10 minuten
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown").innerHTML = "De lancering is begonnen!";
+          
+          setTimeout(function() {
+            // Vervang 'volgende_pagina.html' door de URL van de pagina die je wilt weergeven
+            window.location.href = 'volgende_pagina.html';
+          }, 10 * 60 * 1000); // Herlaad na 10 minuten naar een andere pagina
+        }
+      }, 1000);
+    } else {
+      // Countdown is voorbij, toon een bericht
+      document.getElementById("countdown").innerHTML = "Welkom! De website is nu beschikbaar.";
+    }
   </script>
 </body>
 </html>
-
-    <!-- Meta -->
-    <meta data-n-head='ssr' data-hid='theme-color' name='theme-color' content='#0332bf'>
-    <meta data-n-head='ssr' data-hid='og:type' name='og:type' content='website'>
-    <meta data-n-head='ssr' data-hid='og:title' name='og:title' content='Ricardo INC'>
-    <meta data-n-head='ssr' data-hid='og:url' name='og:url' content='https://disconnectbot.com'>
-    <meta data-n-head='ssr' data-hid='og:image' name='og:image'
-        content='https://disconnectbot.com/assets/disconnect.png'>
-    <meta data-n-head='ssr' data-hid='description' name='description'
-        content='Coming Soon...'>
-    <meta data-n-head='ssr' data-hid='og:description' name='og:description'
-        content='Coming Soon...'>
