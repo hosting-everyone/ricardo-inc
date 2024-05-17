@@ -12,56 +12,55 @@
     #countdown {
       font-size: 24px;
     }
+    #content {
+      display: block;
+    }
+    #finishedContent {
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <h1>Coming Soon!</h1>
-  <p id="releaseDate">Release Datum: 10 oktober 2024</p>
-  <div id="countdown"></div>
+  <div id="content">
+    <h1>Coming Soon!</h1>
+    <p id="releaseDate">Release Datum: 10 oktober 2024</p>
+    <div id="countdown"></div>
+  </div>
+
+  <div id="finishedContent">
+    <h1>Welkom!</h1>
+    <p>De website is nu beschikbaar.</p>
+  </div>
 
   <script>
-    // Controleer of de URL de parameter "launched" bevat
-    var urlParams = new URLSearchParams(window.location.search);
-    var launched = urlParams.has('launched');
+    // Stel de release datum in (in UTC tijd)
+    var releaseDate = new Date('2024-10-10T00:00:00Z').getTime();
 
-    if (!launched) {
-      // Stel de release datum in (in UTC tijd)
-      var releaseDate = new Date('2024-10-10T00:00:00Z').getTime();
+    // Update de timer elke seconde
+    var x = setInterval(function() {
 
-      // Update de timer elke seconde
-      var x = setInterval(function() {
-
-        // Haal de huidige tijd op
-        var now = new Date().getTime();
-        
-        // Bereken het verschil tussen nu en de release datum
-        var distance = releaseDate - now;
-        
-        // Bereken de dagen, uren, minuten en seconden
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
+      // Haal de huidige tijd op
+      var now = new Date().getTime();
+      
+      // Bereken het verschil tussen nu en de release datum
+      var distance = releaseDate - now;
+      
+      // Bereken de dagen, uren, minuten en seconden
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // Als de countdown voorbij is, toon dan een bericht en verberg de countdown
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("content").style.display = "none";
+        document.getElementById("finishedContent").style.display = "block";
+      } else {
         // Toon het resultaat in de div met id="countdown"
-        document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
-        
-        // Als de countdown voorbij is, toon dan een bericht en start een timer voor 10 minuten
-        if (distance < 0) {
-          clearInterval(x);
-          document.getElementById("countdown").innerHTML = "De lancering is begonnen!";
-          
-          setTimeout(function() {
-            // Vervang 'volgende_pagina.html' door de URL van de pagina die je wilt weergeven
-            window.location.href = '/';
-          }, 10 * 60 * 1000); // Herlaad na 10 minuten naar een andere pagina
-        }
-      }, 1000);
-    } else {
-      // Countdown is voorbij, toon een bericht
-      document.getElementById("countdown").innerHTML = "Welkom! De website is nu beschikbaar.";
-    }
+        document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      }
+    }, 1000);
   </script>
 </body>
 </html>
