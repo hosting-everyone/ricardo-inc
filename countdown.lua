@@ -1,6 +1,6 @@
-project_folder/
+countdown/
 │
-├── coming_soon/
+├── countdown/
 │   ├── index.html         <-- Pagina met de countdown
 │   └── style.css          <-- Stijlblad voor de countdown pagina
 │
