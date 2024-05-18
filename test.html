@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiveM Server</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>FiveM Server</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#connect">Connecten</a></li>
+                <li><a href="#webshop">Webshop</a></li>
+                <li><a href="#discord">Discord</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="connect">
+            <h2>Connect met Onze Server</h2>
+            <p>Welkom op onze FiveM-server! Klik op de knop hieronder om te verbinden.</p>
+            <button onclick="connectToServer()">Connecten</button>
+        </section>
+
+        <section id="webshop">
+            <h2>Webshop</h2>
+            <p>Bezoek onze webshop voor exclusieve items en meer.</p>
+            <a href="https://jouwwebshop.nl" target="_blank" class="shop-button">Naar de Webshop</a>
+        </section>
+
+        <section id="discord">
+            <h2>Discord</h2>
+            <p>Sluit je aan bij onze Discord-community!</p>
+            <p>Aantal Leden: <span id="member-count">Laden...</span></p>
+            <a href="https://discord.gg/jouwdiscordlink" target="_blank" class="discord-button">Join onze Discord</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FiveM Server. Alle rechten voorbehouden.</p>
+    </footer>
+
+    <script>
+        function connectToServer() {
+            window.location.href = "fivem://connect/jouwserverip";
+        }
+
+        async function getDiscordMemberCount() {
+            const guildId = 'JOUW_GUILD_ID'; // Vervang dit door je Discord guild ID
+            const botToken = 'JOUW_BOT_TOKEN'; // Vervang dit door je Discord bot token
+            
+            const response = await fetch(`https://discord.com/api/v10/guilds/${guildId}?with_counts=true`, {
+                headers: {
+                    'Authorization': `Bot ${botToken}`
+                }
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById('member-count').innerText = data.approximate_member_count;
+            } else {
+                document.getElementById('member-count').innerText = 'Kan niet laden';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getDiscordMemberCount();
+        });
+    </script>
+</body>
+</html>
