@@ -1,8 +1,6 @@
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #121212;
-    color: #f0f0f0;
+.logo img {
+    height: 40px; /* Pas de grootte van je logo aan zoals nodig */
+    width: auto;  /* Zorg ervoor dat de breedte automatisch wordt aangepast voor verhoudingen */
 }
 
 nav {
