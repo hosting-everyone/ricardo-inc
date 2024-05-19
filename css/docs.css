@@ -33,15 +33,15 @@ body {
 }
 
 .sidebar h2 {
-    margin-top: 0;
+    margin: 0;
     color: #ecf0f1;
     font-weight: 700;
-    display: inline;
 }
 
 .sidebar ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 .sidebar ul li {
