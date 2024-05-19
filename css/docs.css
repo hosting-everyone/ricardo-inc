@@ -6,7 +6,7 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
-    background-color: #111111;
+    background-color: #f9fafb;
     color: #333;
 }
 
@@ -21,11 +21,22 @@ body {
     transition: width 0.3s;
 }
 
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    height: 40px;
+    margin-right: 10px;
+}
+
 .sidebar h2 {
     margin-top: 0;
     color: #ecf0f1;
-    text-align: center;
     font-weight: 700;
+    display: inline;
 }
 
 .sidebar ul {
