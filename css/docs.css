@@ -122,3 +122,17 @@ body {
     }
 }
 
+/* Specifieke CSS voor index.html */
+body.index .sidebar {
+    background-color: #3498db;
+}
+
+/* Specifieke CSS voor page1.html */
+body.page1 .sidebar {
+    background-color: #27ae60;
+}
+
+/* Specifieke CSS voor page2.html */
+body.page2 .sidebar {
+    background-color: #e74c3c;
+}
